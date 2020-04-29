@@ -23,7 +23,6 @@ zplug "lib/git",             from:oh-my-zsh
 zplug "lib/history",         from:oh-my-zsh
 zplug "lib/key-bindings",    from:oh-my-zsh
 zplug "plugins/docker",      from:oh-my-zsh
-zplug "plugins/virtualenv"   from:oh-my-zsh
 zplug "plugins/npm",         from:oh-my-zsh, defer:2
 zplug "plugins/yarn",        from:oh-my-zsh, defer:2
 
