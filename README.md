@@ -8,6 +8,9 @@ TODO: images
 
 ## Built With
 
+I am using [stow](https://www.gnu.org/software/stow/) to handle installing dot files. [Here is a great article
+about using stow](https://codys.club/blog/2015/07/07/managing-your-dotfiles-with-gnu-stow/).
+
 TODO: tools that I used, with github links
 
 - [bspwm](https://github.com/baskerville/bspwm)
