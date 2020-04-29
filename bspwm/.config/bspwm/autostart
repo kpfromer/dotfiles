@@ -6,11 +6,14 @@
 #  \__,_|\__,_|\__\___/|___/\__\__,_|_|   \__|
 # --------------------------------------------
 
+# start sxhkd
+sxhkd &
+
 # Load xresources
 xrdb merge .Xresources &
 
 # audio
-pulseaudio --start
+start-pulseaudio-x11 &
 
 # run dunst to show notifications
 dunst &
