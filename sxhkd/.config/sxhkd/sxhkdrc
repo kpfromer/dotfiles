@@ -5,12 +5,18 @@
 # |___/_/\_\_| |_|_|\_\__,_|_|  \___|
 # -----------------------------------
 
+# todo: fix!
+
 # Development/Testing Tools
 # -----------------------------------
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
 
 # Cleanly quit bspwm
 # super + shift + q
@@ -34,7 +40,7 @@ super + {_,shift + }q
 # NOTE the presence of the tilde ~.  If current state matches the given
 # state, then the argument is interpreted as the last state.
 super + {shift + space,space,f}
-	bspc node -t ~{tiled,floating,fullscreen}
+	bspc node -t "~{tiled,floating,fullscreen}"
 
 # Map or unmap windows (functional equivalent of "minimize")
 ## unhide
@@ -89,10 +95,13 @@ super + d
 
 # launch browser
 super + w
-	$BROWSER
+	default-browser
 
 super + Return
 	default-terminal
+
+#super + Return
+#	default-terminal
 
 # open file explorer
 super + r
