@@ -1,8 +1,9 @@
-# $HOME/.profile
+# source default system profiles
+source /etc/profile
 
 # Set our default path
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin/core_perl:/usr/bin"
-export PATH=$(yarn global bin):"$HOME/.config/bspwm/panel:$HOME/.bin":$PATH
+export PATH=$(yarn global bin):"$HOME/.config/scripts:$HOME/.config/bspwm/panel:$HOME/.bin":$PATH
 
 # setup of XDG folder locations
 # see more here: https://wiki.archlinux.org/index.php/XDG_Base_Directory
@@ -13,7 +14,7 @@ export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 export BSPWM_SOCKET="/tmp/bspwm-socket"
 
 # Custom Programs
-export TERMINAL="urxvt"
+export TERMINAL="termite"
 export BROWSER="google-chrome-stable"
 export EDITOR="vim"
 export GUI_EDITOR="code-insiders"
