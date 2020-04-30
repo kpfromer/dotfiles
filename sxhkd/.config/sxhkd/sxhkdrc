@@ -105,7 +105,7 @@ super + Return
 
 # open file explorer
 super + r
-	default-terminal $FILE
+	default-terminal --exec="$FILE"
 
 # todo: open terminal at folder location
 #super + shift + z
@@ -115,16 +115,11 @@ super + r
 # -----------------------------------
 
 # play
-super + p
+super + shift + p
 	playerctl --player=$PLAYER play-pause 
 
-# todo: next song
-# super + shift + .
-# 	playerctl --player=$PLAYER next 
-
-# todo: previous song
-# super + shift + ,
-# 	playerctl --player=$PLAYER previous 
+super + shift + {comma,period}
+	playerctl --player=$PLAYER {previous,next}
 
 # Media Keys
 # -----------------------------------
