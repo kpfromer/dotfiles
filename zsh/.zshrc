@@ -7,7 +7,7 @@
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # zsh history
-HISTFILE=~/.zhistory
+HISTFILE=$HOME/.cache/zhistory
 HISTSIZE=1000
 SAVEHIST=500
 
