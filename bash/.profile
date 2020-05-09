@@ -17,11 +17,11 @@ export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 export BSPWM_SOCKET="/tmp/bspwm-socket"
 
 # Custom Programs
-export TERMINAL="termite"
-export BROWSER="google-chrome-stable"
+export TERMINAL="urxvt"
+export BROWSER="google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode"
 export EDITOR="vim"
 export GUI_EDITOR="code-insiders"
-export FILE="ranger"
+export FILE="vifmrun"
 export PLAYER="spotify"
 
 # Load profiles from /etc/profile.d
