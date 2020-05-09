@@ -22,7 +22,7 @@ dunst &
 sh ~/.fehbg &
 
 # compositing (shadows, transparency, reduced flickering)
-picom -b &
+compton -b &
 
 # enable local fonts in .fonts directory
 xset +fp /usr/share/fonts/local &
