@@ -1,0 +1,117 @@
+type,name,description
+,,
+#,Xorg Stuff,
+,xorg-apps,A bunch of default tools for xorg
+,xdotool,provides window action utilities on the command line.
+,xorg-xdpyinfo,aids with resolution determination and screen recording.
+,xorg-server,graphical server
+,xorg-xwininfo,allows quering information about windows
+,xorg-xinit,starts the graphical server
+,arandr,is a GUI for screen adjustment
+,Compton-tryone-git,a compositor for blurring/transparency
+,,
+#,ZSH,
+,zsh,is a more customizable shell.
+,zsh-completions,adds autocompletion to zsh
+,zplug,plugin manager for zsh
+,,
+#,Vim,
+,vi,is a text editor
+,vim,is better vi
+,neovim,is a fanicer version of vim
+,,
+#,Node/JavaScript,
+,nodejs,runs javascript server side
+,npm,handles javascript libraries.
+,yarn,handles javascript libraries (like npm but a faster).
+,,
+#,Desktop Experience,
+,bspwm,the tiling window manager
+,sxhkd,managles hotkeys (since bspwm does not do that)
+,polybar,is the menu system
+,rofi,is the application launcher
+,Unicode-rxvt,the terminal emulator
+,dunst,is the application launcher
+,,
+#,Fonts/Themes,
+,Arc-gtk-theme,gtk theme with nice dark mode
+,papirus-icon-theme,nice icon pack
+,osx-el-capitan-theme-git,macos like cursor pack
+,lxappearance,gtk application to easily change gtk themes/fonts/icons/cursors
+,ttf-ubuntu-font-family,is a font face
+,noto-fonts-emoji,contains emojis
+,ttf-emojione,is font face used for emojis
+,noto-fonts,is a collection of free google fonts
+,,
+#,Audio,
+,pulseaudio,is the audio system (>inb4 bloat).
+,pulseaudio-alsa,is an audio interface with ALSA.
+,pulsemixer,is an intuitive ncurses audio controller.
+,pavucontrol,
+,playerctl,"controls audio sources, like spotify."
+,,
+#,Video,
+,mpv,is a lightweight video player.
+,,
+#,Images,
+,sxiv,is an image viewer
+,python-ueberzug,creates viewable images in the termial (used in vifm)
+,ffmpegthumbnailer,creates video thumbnail images
+,,
+#,Desktop Applications,
+,google-chrome,my browser of choice (laugh at me all you want)
+,visual-studio-code-insiders,Bleedy edge of gui text editor from microsoft
+,spotify,is a music player.
+,discord,a messaging platform
+,caja,is a graphical file explorer
+,,
+#,Bluetooth,
+,bluez,bluetooth library
+,Bluez-utils,utils for bluez
+,blueberry,gui for connecting to bluetooth devices
+,pulseaudio-bluetooth,bluetooth adapter for pulseaudio
+,,
+#,Misc. Utils,
+,fzf,is a fuzzy file finder
+,arp-scan,scans the network for devices
+,xcape,gives the special escape/super mappings.
+,youtube-dl,downloads youtube videos
+,rsync,is a copy paste tool
+,snapd,is a linux application manager
+,xwallpaper,sets the wallpaper
+,unclutter,hides an inactive mouse.
+,zathura,is a vi like pdf viewer
+,Zathura-poppler,needed to interpret pdf files
+,networkmanager,handles network connections
+,vifm,is a vi based file explorer
+,ntp,is a timezone manager.
+,xcwd-git,gets the current directory of the terminal.
+,unrar,extracts rars.
+,unzip,unzips zips.
+,i3lock,is the lockscreen
+,cronie,runs commands at certain times.
+,neofetch,displays system settings.
+,pfetch,faster neofetch
+,xflux,removes blue light for night
+,xclip,used to copy text to clipboard in terminal
+,htop,better top that shows system resources
+,,
+,,
+,,
+,,
+,,
+#,Todo,
+#,Add services to enable,
+#,Add aur flags!,
+,,
+,openssh,
+,openssl,
+,,
+,,
+,nvidia,
+,Nvidia-settings,IF YOU USE NVIDIA GPU USE THIS TO TUNE FOR COMPOSITor
+,git,version control
+,make,make for c
+,cmake,c++ make
+,gdb,GNU debugger – useful for debugging c/cpp code
+,feh,
