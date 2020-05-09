@@ -71,9 +71,11 @@ super + {Left,Down,Up,Right}
 super + shift + {Left,Down,Up,Right}
 	euclid_mover {west,south,north,east}
 
+# Manual window placement (presel)
+super + ctrl + {Left,Down,Up,Right,space}
+	bspc node --presel-dir {west,south,north,east,cancel}
+
 # resize window
-super + ctrl + {Left,Down,Up,Right}
-	bspc node --presel-dir {west,south,north,east}
 # super + ctrl + {Left,Down,Up,Right}
 # 	bspwm_resize.sh {west,south,north,east}
 
