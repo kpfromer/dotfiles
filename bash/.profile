@@ -1,6 +1,9 @@
 # source default system profiles
 source /etc/profile
 
+# keyring - xauthority
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
 # Set our default path
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin/core_perl:/usr/bin"
 export PATH=$(yarn global bin):"$HOME/.config/scripts:$HOME/.config/bspwm/panel:$HOME/.bin":$PATH
