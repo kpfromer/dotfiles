@@ -4,6 +4,10 @@
 #   / /\__ \ | | |
 #  /___|___/_| |_|
 
+# Starship
+eval "$(starship init zsh)"
+
+# Zplug
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # zsh history
@@ -27,25 +31,26 @@ export LESS_TERMCAP_me=$(tput sgr0)
 
 
 # aliases
-alias ls='ls --color=auto'
+alias ls='exa --long --header --icons --sort=type'
+alias tree='exa --tree --level 3'
 alias sdn="sudo shutdown -h now"
 alias cp="cp -i" # Confirm before overwriting something
-alias code="code-insiders"
 alias pkg="yay -Q | fzf"
+alias yt='youtube-dl --add-metadata -i'
+alias cz='git-cz --disable-emoji'
+alias cu-vpn='/opt/cisco/anyconnect/bin/vpn' # read more here: https://oit.colorado.edu/tutorial/vpn-setup-and-usage-linux
+
 
 # load the good parts from oh-my-zsh
 zplug "lib/completion",      from:oh-my-zsh
-zplug "lib/git",             from:oh-my-zsh
+# zplug "lib/git",             from:oh-my-zsh
 zplug "lib/history",         from:oh-my-zsh
-zplug "lib/key-bindings",    from:oh-my-zsh
+# zplug "lib/key-bindings",    from:oh-my-zsh
 zplug "plugins/docker",      from:oh-my-zsh
-zplug "plugins/npm",         from:oh-my-zsh, defer:2
-zplug "plugins/yarn",        from:oh-my-zsh, defer:2
-
-# theme
-# todo: change to nord theme
-zplug "dracula/zsh", use:dracula.zsh-theme
-
+# zplug "plugins/npm",         from:oh-my-zsh, defer:2
+# zplug "plugins/yarn",        from:oh-my-zsh, defer:2
+zplug "zdharma/fast-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
 	printf "Install? [y/N]: "
@@ -53,5 +58,12 @@ if ! zplug check --verbose; then
 		echo; zplug install
 	fi
 fi
+
 # Then, source plugins and add commands to $PATH
 zplug load
+
+# run neofetch if terminal is interactive
+[ -z "$PS1" ] || pfetch
+
+# load miniconda
+# [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
