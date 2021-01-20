@@ -17,10 +17,10 @@ export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 export BSPWM_SOCKET="/tmp/bspwm-socket"
 
 # Custom Programs
-export TERMINAL="urxvt"
+export TERMINAL="kitty"
 export BROWSER="google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode"
 export EDITOR="vim"
-export GUI_EDITOR="code-insiders"
+export GUI_EDITOR="code"
 export FILE="vifmrun"
 export PLAYER="spotify"
 
