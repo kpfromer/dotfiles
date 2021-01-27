@@ -14,7 +14,7 @@ about using stow](https://codys.club/blog/2015/07/07/managing-your-dotfiles-with
 For example to install all try:
 
 ```bash
-stow -vf ~ bash bspwm dunst git picom spicetify sxhkd vim zsh
+stow -vt ~ bash bspwm dunst git picom spicetify sxhkd vim zsh
 ```
 
 TODO: tools that I used, with github links
