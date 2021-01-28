@@ -62,11 +62,11 @@ Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'luochen1990/rainbow'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 "Plug 'arcticicestudio/nord-vim'
 call plug#end()
 "filetype plugin indent on
-set bg=dark
-let g:gruvbox_contrast_dark='soft'
-colorscheme gruvbox
+"set bg=dark
+"let g:gruvbox_contrast_dark='soft'
+"colorscheme gruvbox
 "colorscheme nord "Set the color scheme to OneDark
