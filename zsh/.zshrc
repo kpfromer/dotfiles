@@ -10,6 +10,9 @@ eval "$(starship init zsh)"
 # Zplug
 source /usr/share/zsh/scripts/zplug/init.zsh
 
+# Per system file
+source ~/.zsh_custom
+
 # zsh history
 HISTFILE=$HOME/.cache/zhistory
 HISTSIZE=1000
@@ -39,6 +42,7 @@ alias pkg="yay -Q | fzf"
 alias yt='youtube-dl --add-metadata -i'
 alias cz='git-cz --disable-emoji'
 alias cu-vpn='/opt/cisco/anyconnect/bin/vpn' # read more here: https://oit.colorado.edu/tutorial/vpn-setup-and-usage-linux
+alias open="nautilus"
 
 
 # load the good parts from oh-my-zsh
@@ -64,6 +68,9 @@ zplug load
 
 # run neofetch if terminal is interactive
 [ -z "$PS1" ] || pfetch
+
+# School script to jump dirs
+source /home/kpfromer/.config/bash_functions/sc.sh
 
 # load miniconda
 # [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
