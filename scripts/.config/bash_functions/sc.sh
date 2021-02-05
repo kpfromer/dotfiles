@@ -22,6 +22,10 @@ function sc() {
           # exit 1
       esac
       ;;
+    text)
+      cd $dir/resources
+      nohup nautilus . > /dev/null 2>&1  &
+      ;;
     *)
       cd $dir
       ;;
