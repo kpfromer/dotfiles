@@ -13,6 +13,12 @@ source /usr/share/zsh/scripts/zplug/init.zsh
 # Per system file
 source ~/.zsh_custom
 
+# tmp lang fix
+export LANG=en_US.UTF-8
+
+# nvm
+source /usr/share/nvm/init-nvm.sh
+
 # zsh history
 HISTFILE=$HOME/.cache/zhistory
 HISTSIZE=1000
@@ -74,3 +80,4 @@ source /home/kpfromer/.config/bash_functions/sc.sh
 
 # load miniconda
 # [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+# source /usr/share/nvm/init-nvm.sh
