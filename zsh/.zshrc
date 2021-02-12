@@ -49,16 +49,14 @@ alias yt='youtube-dl --add-metadata -i'
 alias cz='git-cz --disable-emoji'
 alias cu-vpn='/opt/cisco/anyconnect/bin/vpn' # read more here: https://oit.colorado.edu/tutorial/vpn-setup-and-usage-linux
 alias open="nautilus"
+alias ocr='ocrmypdf -l eng --rotate-pages --deskew --clean --optimize 1'
 
 
 # load the good parts from oh-my-zsh
 zplug "lib/completion",      from:oh-my-zsh
-# zplug "lib/git",             from:oh-my-zsh
 zplug "lib/history",         from:oh-my-zsh
 # zplug "lib/key-bindings",    from:oh-my-zsh
 zplug "plugins/docker",      from:oh-my-zsh
-# zplug "plugins/npm",         from:oh-my-zsh, defer:2
-# zplug "plugins/yarn",        from:oh-my-zsh, defer:2
 zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 # Install plugins if there are plugins that have not been installed
@@ -74,6 +72,10 @@ zplug load
 
 # run neofetch if terminal is interactive
 [ -z "$PS1" ] || pfetch
+
+# Allows ctrl+left arrow or ctrl+right arrow to move by words
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
 
 # School script to jump dirs
 source /home/kpfromer/.config/bash_functions/sc.sh
