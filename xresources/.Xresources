@@ -1,7 +1,11 @@
+!! Make sure to run `xrdb -load ~/.Xresources` after changes!
+
+!! Hexcode color format: #AARRGGBB or #ARGB or #RRGGBB
+
 !! Colorscheme
 ! special
 *.foreground:   #d8dee9
-*.background:   #2e3440
+*.background:   #552e3440
 *.cursorColor:  #d8dee9
 
 ! black
@@ -43,7 +47,7 @@ URxvt*scrollTtyOutput: false
 ! Disable scrollbar
 URxvt*scrollBar: false
 ! Fonts
-URxvt*font: xft:Input Mono:pixelsize:13
+URxvt*font: xft:Inter:pixelsize:11
 ! Copy/Paste key bindings
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
