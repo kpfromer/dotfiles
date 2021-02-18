@@ -1,0 +1,119 @@
+{
+  "modules": [
+    {
+      "name": "bash",
+      "location": {
+        "from": "bash",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "bspwm",
+      "location": {
+        "from": "bspwm",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "compton",
+      "location": {
+        "from": "vim",
+        "to": "/home/compton"
+      }
+    },
+    {
+      "name": "dunst",
+      "location": {
+        "from": "dunst",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "git",
+      "location": {
+        "from": "git",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "kitty",
+      "location": {
+        "from": "kitty",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "picom",
+      "location": {
+        "from": "picom",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "polybar",
+      "location": {
+        "from": "polybar",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "rofi",
+      "location": {
+        "from": "rofi",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "scripts",
+      "location": {
+        "from": "scripts",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "spicetify",
+      "location": {
+        "from": "spicetify",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "sxhkd",
+      "location": {
+        "from": "sxhkd",
+        "to": "/home/kpfromer"
+      }
+    },
+
+    {
+      "name": "vifm",
+      "location": {
+        "from": "vifm",
+        "to": "/home/kpfromer"
+      }
+    },
+    {
+      "name": "vim",
+      "location": {
+        "from": "vim",
+        "to": "/home/kpfromer"
+      }
+    },
+
+    {
+      "name": "xresources",
+      "location": {
+        "from": "xresources",
+        "to": "/home/kpfromer"
+      }
+    },
+
+    {
+      "name": "zsh",
+      "location": {
+        "from": "zsh",
+        "to": "/home/kpfromer"
+      }
+    }
+  ]
+}
