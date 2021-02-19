@@ -39,7 +39,7 @@
       "name": "kitty",
       "location": {
         "from": "kitty",
-        "to": "/home/kpfromer"
+        "to": "/home/kpfromer/.config/kitty"
       }
     },
     {
@@ -53,7 +53,7 @@
       "name": "polybar",
       "location": {
         "from": "polybar",
-        "to": "/home/kpfromer"
+        "to": "/home/kpfromer/.config/polybar"
       }
     },
     {
