@@ -2,20 +2,21 @@
 
 Here are the tools and configurations I use to customize my programming experience.
 
-## Preview
-
-TODO: images
-
 ## Built With
 
-I am using [stow](https://www.gnu.org/software/stow/) to handle installing dot files. [Here is a great article
+`kdot` - a [custom made](https://github.com/kpfromer/kdot) dotfile manager that uses the `kdot.json` file for linking.
+
+In the past I used  [stow](https://www.gnu.org/software/stow/) to handle installing dot files. [Here is a great article
 about using stow](https://codys.club/blog/2015/07/07/managing-your-dotfiles-with-gnu-stow/).
 
-For example to install all try:
 
-```bash
-stow -vt ~ bash bspwm dunst git picom spicetify sxhkd vim zsh
-```
+### `kdot` usage
+
+`kdot link bash zsh` to symlink the bash and zsh modules (as defined in the json folder).
+
+`kdot unlink bash zsh` to remove the symlinks in the bash and zsh modules.
+
+`kdot sync bash zsh` to update the symlinks (new files/folders).
 
 TODO: tools that I used, with github links
 
@@ -25,10 +26,6 @@ TODO: tools that I used, with github links
 - [polybar](https://github.com/polybar/polybar)
 - [rofi](https://github.com/davatorium/rofi)
 - [input font](https://input.fontbureau.com/)
-
-todo:
-
-- add custom scripts
 
 ## Resources
 
