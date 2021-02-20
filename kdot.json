@@ -46,7 +46,7 @@
       "name": "picom",
       "location": {
         "from": "picom",
-        "to": "/home/kpfromer"
+        "to": "/home/kpfromer/.config"
       }
     },
     {
@@ -60,14 +60,14 @@
       "name": "rofi",
       "location": {
         "from": "rofi",
-        "to": "/home/kpfromer"
+        "to": "/home/kpfromer/.config/rofi"
       }
     },
     {
       "name": "scripts",
       "location": {
         "from": "scripts",
-        "to": "/home/kpfromer"
+        "to": "/home/kpfromer/.config"
       }
     },
     {
@@ -89,7 +89,7 @@
       "name": "vifm",
       "location": {
         "from": "vifm",
-        "to": "/home/kpfromer"
+        "to": "/home/kpfromer/.config"
       }
     },
     {
