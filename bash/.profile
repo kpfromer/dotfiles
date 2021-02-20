@@ -5,7 +5,7 @@ source /etc/profile
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # Set our default path
-export PATH="$HOME/.yarn/bin:$HOME/.config/scripts:$HOME/.bin":$PATH
+export PATH="$HOME/.yarn/bin:$HOME/.config/scripts:$HOME/.bin:$HOME/.cargo/bin":$PATH
 
 # setup of XDG folder locations
 # see more here: https://wiki.archlinux.org/index.php/XDG_Base_Directory
