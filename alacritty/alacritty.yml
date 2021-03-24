@@ -1,0 +1,17 @@
+import:
+  - ~/.config/alacritty/themes/rose-pine.yml
+
+font:
+  normal:
+    family: UbuntuMono Nerd Font Mono
+  size: 12.0
+
+background_opacity: 0.8
+
+shell:
+  program: /bin/bash
+  args:
+    - --login
+    - -c
+    # tmux config handles loading using zsh
+    - tmux
