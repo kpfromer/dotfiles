@@ -1,0 +1,79 @@
+lockfileVersion: 5.3
+
+overrides:
+  lua-types: 2.8.0
+
+specifiers:
+  awesomewm.4.3.ts.d: 0.0.1-rc2
+  lua-types: 2.8.0
+  typescript: ^4.2.2
+  typescript-to-lua: ^0.37.1
+
+dependencies:
+  awesomewm.4.3.ts.d: 0.0.1-rc2
+  lua-types: 2.8.0
+
+devDependencies:
+  typescript: 4.3.2
+  typescript-to-lua: 0.37.1
+
+packages:
+
+  /awesomewm.4.3.ts.d/0.0.1-rc2:
+    resolution: {integrity: sha512-z2wkAWtGmRG3bmI7mmO4cEnFHsnrR8+9hX9tK9dGPxg1J+5fltfLblcK9LB0n8CdPbf9Ze/n4WeszLubcL0iyw==}
+    dependencies:
+      lua-types: 2.8.0
+    dev: false
+
+  /function-bind/1.1.1:
+    resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
+    dev: true
+
+  /has/1.0.3:
+    resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      function-bind: 1.1.1
+    dev: true
+
+  /is-core-module/2.4.0:
+    resolution: {integrity: sha512-6A2fkfq1rfeQZjxrZJGerpLCTHRNEBiSgnu0+obeJpEPZRUooHgsizvzv0ZjJwOz3iWIHdJtVWJ/tmPr3D21/A==}
+    dependencies:
+      has: 1.0.3
+    dev: true
+
+  /lua-types/2.8.0:
+    resolution: {integrity: sha512-FJY32giHIqD/XW1XGkJnl8XotXIJsJ2M42fj9A2UudttWA6orJioToW1OpgPdayTr+S1/oTO7i+hfBY3UVG8Fg==}
+    dev: false
+
+  /path-parse/1.0.7:
+    resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
+    dev: true
+
+  /resolve/1.20.0:
+    resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
+    dependencies:
+      is-core-module: 2.4.0
+      path-parse: 1.0.7
+    dev: true
+
+  /source-map/0.7.3:
+    resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
+    engines: {node: '>= 8'}
+    dev: true
+
+  /typescript-to-lua/0.37.1:
+    resolution: {integrity: sha512-kzN26fIIdYVLxwd2AJZB2VwxaO8P6GaHrl1uASP5gEo0oSU87xxJ/s/OVfpWCKNGxQnbd/VLmW2fFIneK7SoRg==}
+    engines: {node: '>=12.13.0'}
+    hasBin: true
+    dependencies:
+      resolve: 1.20.0
+      source-map: 0.7.3
+      typescript: 4.3.2
+    dev: true
+
+  /typescript/4.3.2:
+    resolution: {integrity: sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true

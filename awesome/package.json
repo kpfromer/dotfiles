@@ -1,0 +1,22 @@
+{
+  "name": "new-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tstl"
+  },
+  "author": "",
+  "license": "ISC",
+  "resolutions": {
+    "lua-types": "2.8.0"
+  },
+  "dependencies": {
+    "awesomewm.4.3.ts.d": "0.0.1-rc2",
+    "lua-types": "^2.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.2",
+    "typescript-to-lua": "^0.37.1"
+  }
+}
