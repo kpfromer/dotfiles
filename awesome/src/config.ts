@@ -8,6 +8,7 @@ import { option } from './option';
 import { tag } from 'awful';
 
 const modkey = ModifierKey.Mod4;
+
 const apps = {
   terminal: os.getenv('TERMINAL') ?? 'alacritty',
   // GUI Text Editor
@@ -392,6 +393,7 @@ export const config = {
     // "redshift",
     // Bluetooth tray icon
     'blueberry-tray',
+    'picom --experimental-backends --dbus',
   ],
 
   rules: [
