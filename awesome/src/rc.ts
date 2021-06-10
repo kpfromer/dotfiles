@@ -5,12 +5,12 @@ import * as menubar from 'menubar';
 import * as naughty from 'naughty';
 
 import { Direction, ModifierKey } from 'awesomewm.4.3.ts.d';
+import { clientButtons, clientKeys } from './client';
 import { filesystem as fs, table } from 'gears';
 import { launchApps, range } from './utils';
 import { spawn, tag } from 'awful';
 
 import { Screen } from 'awesomewm.4.3.ts.d/awesomewm/awful/screen';
-import { clientKeys } from './client';
 import { config } from './config';
 import { option } from './option';
 
@@ -245,95 +245,6 @@ const globalKeys = table.join<awful.Key<Screen>>(
   ),
 );
 
-// const clientKeys = table.join<awful.Key<Client>>(
-//   awful.key(
-//     [modkey],
-//     "f",
-//     (c) => {
-//       c.fullscreen = !c.fullscreen;
-//       c.raise();
-//     },
-//     { description: "toggle fullscreen", group: "client" }
-//   ),
-//   awful.key([modkey], "q", (it) => it.kill(), {
-//     description: "close",
-//     group: "client",
-//   }),
-//   awful.key(
-//     [modkey, ModifierKey.Control],
-//     "space",
-//     (it) => {
-//       it.floating = !it.floating;
-//     },
-//     {
-//       description: "toggle floating",
-//       group: "client",
-//     }
-//   ),
-//   awful.key(
-//     [modkey, ModifierKey.Control],
-//     "Return",
-//     (it) => it.swap(awful.client.getmaster()),
-//     {
-//       description: "move to master",
-//       group: "client",
-//     }
-//   ),
-//   awful.key([modkey], "o", (it) => it.move_to_screen(), {
-//     description: "move to screen",
-//     group: "client",
-//   }),
-//   awful.key(
-//     [modkey],
-//     "t",
-//     (it) => {
-//       it.ontop = !it.ontop;
-//     },
-//     {
-//       description: "toggle keep on top",
-//       group: "client",
-//     }
-//   ),
-//   awful.key(
-//     [modkey],
-//     "n",
-//     (it) => {
-//       it.minimized = true;
-//     },
-//     {
-//       description: "minimize",
-//       group: "client",
-//     }
-//   ),
-//   awful.key(
-//     [modkey],
-//     "m",
-//     (it) => {
-//       it.maximized = !it.maximized;
-//       it.raise();
-//     },
-//     { description: "(un)maximize", group: "client" }
-//   ),
-//   awful.key(
-//     [modkey],
-//     "m",
-//     (it) => {
-//       it.maximized_vertical = !it.maximized_vertical;
-//       it.raise();
-//     },
-//     { description: "(un)maximize vertically", group: "client" }
-//   ),
-//   awful.key(
-//     [modkey, ModifierKey.Shift],
-//     "m",
-//     (it) => {
-//       it.maximized_horizontal = !it.maximized_horizontal;
-//       it.raise();
-//     },
-//     { description: "(un)maximize horizontally", group: "client" }
-//   )
-// );
-
 awful.rules.rules = [
   {
     rule: {},
@@ -343,7 +254,7 @@ awful.rules.rules = [
       focus: awful.client.focus.filter,
       raise: true,
       keys: clientKeys,
-      // buttons: clientButtons,
+      buttons: clientButtons,
       screen: awful.screen.preferred,
       placement: awful.placement.no_offscreen,
     },

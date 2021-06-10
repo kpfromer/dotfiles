@@ -1,36 +1,36 @@
-import * as awful from "awful";
+import * as awful from 'awful';
 
-import { Client, Screen } from "awful";
+import { Client, Screen } from 'awful';
+import { ModifierKey, MouseButton } from 'awesomewm.4.3.ts.d';
 
-import { ModifierKey } from "awesomewm.4.3.ts.d";
-import { config } from "./config";
-import { table } from "gears";
+import { config } from './config';
+import { table } from 'gears';
 
 const { modkey } = config;
 
 export const clientKeys = table.join<awful.Key<Client>>(
   awful.key(
     [modkey],
-    "f",
+    'f',
     (c) => {
       c.fullscreen = !c.fullscreen;
       c.raise();
     },
     () => {},
-    { description: "toggle fullscreen", group: "client" }
+    { description: 'toggle fullscreen', group: 'client' },
   ),
   awful.key(
     [modkey],
-    "q",
+    'q',
     (c) => {
       c.kill();
     },
     () => {},
-    { description: "kill window", group: "client" }
+    { description: 'kill window', group: 'client' },
   ),
   awful.key(
     [modkey, ModifierKey.Control],
-    "space",
+    'space',
     (client) => {
       client.floating = !client.floating;
       client.ontop = false;
@@ -38,9 +38,9 @@ export const clientKeys = table.join<awful.Key<Client>>(
     },
     () => {},
     {
-      description: "toggle floating",
-      group: "client",
-    }
+      description: 'toggle floating',
+      group: 'client',
+    },
   ),
   // awful.key(
   //   [modkey, 'Control'],
@@ -54,66 +54,66 @@ export const clientKeys = table.join<awful.Key<Client>>(
   // ),
   awful.key(
     [modkey],
-    "o",
+    'o',
     (c) => {
       c.move_to_screen();
     },
     () => {},
-    { description: "move to screen", group: "client" }
+    { description: 'move to screen', group: 'client' },
   ),
   awful.key(
     [modkey],
-    "t",
+    't',
     (c) => {
       c.ontop = !c.ontop;
     },
     () => {},
-    { description: "toggle keep on top", group: "client" }
+    { description: 'toggle keep on top', group: 'client' },
   ),
   awful.key(
     [modkey],
-    "n",
+    'n',
     (c) => {
       c.minimized = true;
     },
     () => {},
-    { description: "minimize", group: "client" }
+    { description: 'minimize', group: 'client' },
   ),
   awful.key(
     [modkey],
-    "m",
+    'm',
     (c) => {
       c.maximized = !c.maximized;
       c.raise();
     },
     () => {},
-    { description: "(un)maximize", group: "client" }
+    { description: '(un)maximize', group: 'client' },
   ),
   awful.key(
     [modkey, ModifierKey.Control],
-    "m",
+    'm',
     (c) => {
       c.maximized_vertical = !c.maximized_vertical;
       c.raise();
     },
     () => {},
-    { description: "(un)maximize vertically", group: "client" }
+    { description: '(un)maximize vertically', group: 'client' },
   ),
   awful.key(
     [modkey, ModifierKey.Shift],
-    "m",
+    'm',
     (c) => {
       c.maximized_horizontal = !c.maximized_horizontal;
       c.raise();
     },
     () => {},
-    { description: "(un)maximize horizontally", group: "client" }
+    { description: '(un)maximize horizontally', group: 'client' },
   ),
 
   // TODO:
   awful.key(
     [modkey],
-    "p",
+    'p',
     (c) => {
       if (c.floating) {
         c.ontop = false;
@@ -133,6 +133,20 @@ export const clientKeys = table.join<awful.Key<Client>>(
       }
     },
     () => {},
-    { description: "pin window", group: "client" }
-  )
+    { description: 'pin window', group: 'client' },
+  ),
+);
+
+export const clientButtons = table.join<awful.Button<Client>>(
+  awful.button([], MouseButton.Left, (c) => {
+    c.emit_signal('request::activate', 'mouse_click', { raise: true });
+  }),
+  awful.button([modkey], MouseButton.Left, (c) => {
+    c.emit_signal('request::activate', 'mouse_click', { raise: true });
+    awful.mouse.client.move(c);
+  }),
+  awful.button([modkey], MouseButton.Right, (c) => {
+    c.emit_signal('request::activate', 'mouse_click', { raise: true });
+    awful.mouse.client.resize(c);
+  }),
 );
