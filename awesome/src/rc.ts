@@ -6,12 +6,12 @@ import * as naughty from 'naughty';
 
 import { Direction, ModifierKey } from 'awesomewm.4.3.ts.d';
 import { filesystem as fs, table } from 'gears';
+import { launchApps, range } from './utils';
 import { spawn, tag } from 'awful';
 
 import { Screen } from 'awesomewm.4.3.ts.d/awesomewm/awful/screen';
 import { clientKeys } from './client';
 import { config } from './config';
-import { launchApps } from './auto-start';
 import { option } from './option';
 
 if (awesome.startup_errors) {
@@ -346,7 +346,6 @@ awful.rules.rules = [
       // buttons: clientButtons,
       screen: awful.screen.preferred,
       placement: awful.placement.no_offscreen,
-      // placement: awful.placement.no_overlap + awful.placement.no_offscreen,
     },
   },
   {
@@ -359,38 +358,44 @@ awful.rules.rules = [
   },
   {
     rule_any: {
-      instance: ['DTA', 'copyq', 'pinentry'],
+      type: ['dialog'],
       class: [
-        'Arandr',
+        'Wicd-client.py',
+        'calendar.google.com',
         'Blueman-manager',
-        'Gpick',
-        'Kruler',
-        'MessageWin',
         'Sxiv',
-        'Tor Browser',
-        'Wpa_gui',
-        'veromix',
-        'xtightvncviewer',
+        'Caja',
+        'org.gnome.Nautilus',
+        'Org.gnome.Nautilus',
+        'gcr-prompter',
+        'Zoom',
       ],
-      name: ['Event Tester'],
-      role: ['AlarmWindow', 'ConfigManager', 'pop-up'],
-    },
-    properties: { floating: true },
-  },
-  {
-    // hack to return focus to main window in idea after popup
-    rule: {
-      class: 'jetbrains-.*',
-      instance: 'sun-awt-X11-XWindowPeer',
-      name: 'win.*',
+      name: ['Chat'],
     },
     properties: {
-      floating: true,
       focus: true,
-      focusable: false,
-      ontop: true,
-      placement: awful.placement.restore,
+      floating: true,
+      above: true,
+      titlebars_enabled: true,
+      placement: awful.placement.centered,
     },
+  },
+  {
+    rule_any: {
+      class: ['ulauncher', 'Ulauncher'],
+      name: ['Ulauncher - Application Launcher'],
+    },
+    properties: {
+      focus: true,
+      floating: true,
+      above: true,
+      titlebars_enabled: false,
+      placement: awful.placement.centered,
+    },
+  },
+  {
+    rule_any: { type: ['normal', 'dialog'] },
+    properties: { titlebars_enabled: true },
   },
 ];
 
@@ -451,11 +456,3 @@ awful.screen.connect_for_each_screen((screen) => {
     awful.layout.layouts[0],
   );
 });
-
-function range(start: number, endInclusive: number, step = 1): number[] {
-  const result = [];
-  for (let i = start; i <= endInclusive; i += step) {
-    result.push(i);
-  }
-  return result;
-}
