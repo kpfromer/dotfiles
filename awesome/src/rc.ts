@@ -2,12 +2,12 @@ import * as awful from 'awful';
 import * as menubar from 'menubar';
 import * as naughty from 'naughty';
 
-import { clientButtons, clientKeys } from './client';
 import { launchApps, range } from './utils';
 
 import { config } from './config';
 import { globalKeys } from './global';
 import { table } from 'gears';
+import { tagKeys } from './tags';
 
 if (awesome.startup_errors) {
   naughty.notify({
@@ -50,8 +50,8 @@ awful.rules.rules = [
       // border_color: beautiful.border_normal,
       focus: awful.client.focus.filter,
       raise: true,
-      keys: clientKeys,
-      buttons: clientButtons,
+      keys: config.client.keys,
+      buttons: config.client.buttons,
       screen: awful.screen.preferred,
       placement: awful.placement.no_offscreen,
     },
