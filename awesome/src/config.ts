@@ -2,9 +2,10 @@ import * as awful from 'awful';
 
 import { Client, Layout, Screen } from 'awful';
 import { Direction, ModifierKey, MouseButton } from 'awesomewm.4.3.ts.d';
-import { buildButtons, buildKeys, moveCursorToClient, moveCursorToFocus } from './utils';
+import { buildButtons, buildKeys, moveCursorToClient, moveCursorToFocus, range } from './utils';
 
 import { option } from './option';
+import { tag } from 'awful';
 
 const modkey = ModifierKey.Mod4;
 const apps = {
@@ -172,13 +173,13 @@ export const config = {
         group: 'awesome',
         keys: [
           {
-            modifiers: [modkey, ModifierKey.Shift],
+            modifiers: [modkey, ModifierKey.Control],
             key: 'q',
             onPress: () => awesome.quit(),
             description: 'quit awesome',
           },
           {
-            modifiers: [modkey, ModifierKey.Shift],
+            modifiers: [modkey, ModifierKey.Control],
             key: 'r',
             onPress: () => awesome.restart(),
             description: 'reload awesome',
@@ -345,6 +346,51 @@ export const config = {
     ]),
   },
 
-  // TODO: helper and definitions
-  tags: [],
+  tags: {
+    keys: range(1, 9).flatMap((tagName) =>
+      buildKeys<Screen>([
+        {
+          group: 'tag',
+          keys: [
+            {
+              modifiers: [modkey],
+              key: `#${tagName + 9}`,
+              onPress: () =>
+                option(awful.screen.focused())
+                  .andThen((it) => it.tags[tagName - 1])
+                  .forEach((it) => it.view_only()),
+              description: `toggle view of only tag #${tagName}`,
+            },
+            {
+              modifiers: [modkey, ModifierKey.Control],
+              key: `#${tagName + 9}`,
+              onPress: () =>
+                option(awful.screen.focused())
+                  .andThen((it) => it.tags[tagName - 1])
+                  .forEach(tag.viewtoggle),
+              description: `toggle view of tag #${tagName}`,
+            },
+            {
+              modifiers: [modkey, ModifierKey.Shift],
+              key: `#${tagName + 9}`,
+              onPress: () =>
+                option(awful.screen.focused())
+                  .andThen((it) => it.tags[tagName - 1])
+                  .zipMap(option(client.focus))((t, c) => c.move_to_tag(t)),
+              description: `move focused client to tag #${tagName}`,
+            },
+            {
+              modifiers: [modkey, ModifierKey.Shift, ModifierKey.Control],
+              key: `#${tagName + 9}`,
+              onPress: () =>
+                option(awful.screen.focused())
+                  .andThen((it) => it.tags[tagName - 1])
+                  .zipMap(option(client.focus))((t, c) => c.toggle_tag(t)),
+              description: `toggle focused client on tag #${tagName}`,
+            },
+          ],
+        },
+      ]),
+    ),
+  },
 };

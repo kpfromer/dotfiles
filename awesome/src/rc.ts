@@ -6,7 +6,6 @@ import { launchApps, range } from './utils';
 
 import { config } from './config';
 import { table } from 'gears';
-import { tagKeys } from './tags';
 
 if (awesome.startup_errors) {
   naughty.notify({
@@ -106,7 +105,7 @@ awful.rules.rules = [
   },
 ];
 
-root.keys(table.join(config.global.keys, tagKeys));
+root.keys(table.join(config.global.keys, config.tags.keys));
 
 awful.screen.connect_for_each_screen((screen) => {
   awful.tag(
