@@ -5,7 +5,6 @@ import * as naughty from 'naughty';
 import { launchApps, range } from './utils';
 
 import { config } from './config';
-import { globalKeys } from './global';
 import { table } from 'gears';
 import { tagKeys } from './tags';
 
@@ -107,9 +106,7 @@ awful.rules.rules = [
   },
 ];
 
-root.keys(globalKeys);
-
-root.keys(table.join(globalKeys, tagKeys));
+root.keys(table.join(config.global.keys, tagKeys));
 
 awful.screen.connect_for_each_screen((screen) => {
   awful.tag(

@@ -1,13 +1,34 @@
 import * as awful from 'awful';
 
 import { Client, Layout, Screen } from 'awful';
-import { ModifierKey, MouseButton } from 'awesomewm.4.3.ts.d';
-import { buildButtons, buildKeys } from './utils';
+import { Direction, ModifierKey, MouseButton } from 'awesomewm.4.3.ts.d';
+import { buildButtons, buildKeys, moveCursorToClient, moveCursorToFocus } from './utils';
+
+import { option } from './option';
 
 const modkey = ModifierKey.Mod4;
+const apps = {
+  terminal: os.getenv('TERMINAL') ?? 'alacritty',
+  // GUI Text Editor
+  textEditor: 'code',
+  // Terminal based File Editor
+  terminalEditor: os.getenv('EDITOR') ?? 'vim',
+  // Web browser
+  browser: os.getenv('BROWSER') ?? 'google-chrome-stable',
+  // GUI File manager
+  fileManager: 'nautilus',
+  // Network manager
+  networkManager: 'nm-connection-editor',
+  // Bluetooth manager
+  bluetoothManager: 'blueman-manager',
+  // Screenshot
+  screenshot: 'spectacle --region',
+  appLauncher: 'ulauncher',
+};
 
 export const config = {
   modkey,
+  apps,
 
   layouts: [
     awful.layout.suit.spiral.dwindle,
@@ -15,25 +36,6 @@ export const config = {
     awful.layout.suit.floating,
     awful.layout.suit.max,
   ] as Layout[],
-
-  apps: {
-    terminal: os.getenv('TERMINAL') ?? 'alacritty',
-    // GUI Text Editor
-    textEditor: 'code',
-    // Terminal based File Editor
-    terminalEditor: os.getenv('EDITOR') ?? 'vim',
-    // Web browser
-    browser: os.getenv('BROWSER') ?? 'google-chrome-stable',
-    // GUI File manager
-    fileManager: 'nautilus',
-    // Network manager
-    networkManager: 'nm-connection-editor',
-    // Bluetooth manager
-    bluetoothManager: 'blueman-manager',
-    // Screenshot
-    screenshot: 'spectacle --region',
-    appLauncher: 'ulauncher',
-  },
 
   startupApps: [
     // Various things
@@ -162,4 +164,187 @@ export const config = {
       },
     ]),
   },
+
+  global: {
+    // TODO: definitions
+    keys: buildKeys<Screen>([
+      {
+        group: 'awesome',
+        keys: [
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: 'q',
+            onPress: () => awesome.quit(),
+            description: 'quit awesome',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: 'r',
+            onPress: () => awesome.restart(),
+            description: 'reload awesome',
+          },
+        ],
+      },
+      {
+        group: 'layout',
+        keys: [
+          {
+            modifiers: [modkey],
+            key: 'space',
+            onPress: () => awful.layout.inc(1),
+            description: 'select next layout',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: 'space',
+            onPress: () => awful.layout.inc(-1),
+            description: 'select previous layout',
+          },
+        ],
+      },
+      {
+        group: 'client',
+        keys: [
+          {
+            modifiers: [modkey],
+            key: 'Left',
+            onPress: () => {
+              awful.client.focus.bydirection(Direction.Left);
+              moveCursorToFocus();
+            },
+            description: 'focus left',
+          },
+          {
+            modifiers: [modkey],
+            key: 'Right',
+            onPress: () => {
+              awful.client.focus.bydirection(Direction.Right);
+              moveCursorToFocus();
+            },
+            description: 'focus right',
+          },
+          {
+            modifiers: [modkey],
+            key: 'Up',
+            onPress: () => {
+              awful.client.focus.bydirection(Direction.Up);
+              moveCursorToFocus();
+            },
+            description: 'focus up',
+          },
+          {
+            modifiers: [modkey],
+            key: 'Down',
+            onPress: () => {
+              awful.client.focus.bydirection(Direction.Down);
+              moveCursorToFocus();
+            },
+            description: 'focus down',
+          },
+          {
+            modifiers: [modkey],
+            key: 'Tab',
+            onPress: () => {
+              // TODO: fix:
+              awful.client.focus.history.previous();
+              option(client.focus).forEach((it) => {
+                it.raise();
+                moveCursorToClient(it);
+              });
+            },
+            description: 'Focus previously used client',
+          },
+        ],
+      },
+      {
+        group: 'apps',
+        keys: [
+          {
+            modifiers: [modkey],
+            key: 'w',
+            onPress: () => awful.spawn(apps.browser),
+            description: 'launch browser',
+          },
+          {
+            modifiers: [modkey],
+            key: 'd',
+            // TODO: change to start ulauncher up and toggle
+            onPress: () => awful.spawn(apps.appLauncher),
+            description: 'launch app launcher',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: 'f',
+            onPress: () => awful.spawn(apps.fileManager),
+            description: 'open graphical file explorer',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: 's',
+            onPress: () => awful.spawn(apps.screenshot),
+            description: 'capture a screenshot',
+          },
+          {
+            modifiers: [modkey],
+            key: 'Return',
+            onPress: () => awful.spawn(apps.terminal),
+            description: 'open a terminal',
+          },
+          {
+            modifiers: [modkey],
+            key: 'i',
+            onPress: () =>
+              awful.spawn(
+                'nautilus /home/kpfromer/Documents/cu-classes/sophomore/second-semester/resources',
+              ),
+            description: 'open textbooks with file explorer',
+          },
+          {
+            modifiers: [modkey],
+            key: 'v',
+            onPress: () => awful.spawn.with_shell('mpv $(xclip -o)'),
+            description: 'Open video from clipboard.',
+          },
+        ],
+      },
+      {
+        group: 'audio',
+        keys: [
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: '-',
+            onPress: () => awful.spawn('pulsemixer --change-volume -5'),
+            description: 'decrease volume',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: '=',
+            onPress: () => awful.spawn('pulsemixer --change-volume +5'),
+            description: 'increase volume',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: ',',
+            onPress: () => awful.spawn('playerctl previous -p spotify'),
+            description: 'previous song',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: '.',
+            onPress: () => awful.spawn('playerctl next -p spotify'),
+            description: 'next song',
+          },
+          {
+            modifiers: [modkey, ModifierKey.Shift],
+            key: 'p',
+            onPress: () => awful.spawn('playerctl play-pause -p spotify'),
+            description: 'start/stop song',
+          },
+        ],
+      },
+    ]),
+  },
+
+  // TODO: helper and definitions
+  tags: [],
 };

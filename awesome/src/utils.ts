@@ -2,6 +2,8 @@ import * as awful from 'awful';
 
 import { ModifierKey, MouseButton } from 'awesomewm.4.3.ts.d';
 
+import { Client } from 'awful';
+import { option } from './option';
 import { table } from 'gears';
 
 /**
@@ -77,4 +79,20 @@ export function buildButtons<TType>(buttons: ButtonItem<TType>[]): awful.Button<
   );
 
   return table.join<awful.Button<TType>>(...mapped);
+}
+
+function centerCursor(client: Client) {
+  const { x, y, width, height } = client.geometry();
+  mouse.coords({
+    x: x + width / 2,
+    y: y + height / 2,
+  });
+}
+
+export function moveCursorToFocus(): void {
+  option(client.focus).andThen(centerCursor);
+}
+
+export function moveCursorToClient(client: Client): void {
+  centerCursor(client);
 }
