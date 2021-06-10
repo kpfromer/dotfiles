@@ -37,74 +37,8 @@ client.connect_signal('mouse::enter', (it) => {
 });
 
 awful.layout.layouts = config.layouts;
-
 menubar.utils.terminal = config.apps.terminal;
-
-awful.rules.rules = [
-  {
-    rule: {},
-    properties: {
-      // border_width: beautiful.border_width,
-      // border_color: beautiful.border_normal,
-      focus: awful.client.focus.filter,
-      raise: true,
-      keys: config.client.keys,
-      buttons: config.client.buttons,
-      screen: awful.screen.preferred,
-      placement: awful.placement.no_offscreen,
-    },
-  },
-  {
-    rule: {
-      floating: true,
-    },
-    properties: {
-      border_width: 0,
-    },
-  },
-  {
-    rule_any: {
-      type: ['dialog'],
-      class: [
-        'Wicd-client.py',
-        'calendar.google.com',
-        'Blueman-manager',
-        'Sxiv',
-        'Caja',
-        'org.gnome.Nautilus',
-        'Org.gnome.Nautilus',
-        'gcr-prompter',
-        'Zoom',
-      ],
-      name: ['Chat'],
-    },
-    properties: {
-      focus: true,
-      floating: true,
-      above: true,
-      titlebars_enabled: true,
-      placement: awful.placement.centered,
-    },
-  },
-  {
-    rule_any: {
-      class: ['ulauncher', 'Ulauncher'],
-      name: ['Ulauncher - Application Launcher'],
-    },
-    properties: {
-      focus: true,
-      floating: true,
-      above: true,
-      titlebars_enabled: false,
-      placement: awful.placement.centered,
-    },
-  },
-  {
-    rule_any: { type: ['normal', 'dialog'] },
-    properties: { titlebars_enabled: true },
-  },
-];
-
+awful.rules.rules = config.rules;
 root.keys(table.join(config.global.keys, config.tags.keys));
 
 awful.screen.connect_for_each_screen((screen) => {
