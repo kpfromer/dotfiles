@@ -1,1 +1,3 @@
 zsh/.zsh_custom
+**/node_modules
+**/rc.lua
