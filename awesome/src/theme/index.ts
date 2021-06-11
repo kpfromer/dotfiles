@@ -1,10 +1,15 @@
+import * as gears from 'gears';
 import * as naughty from 'naughty';
 
 import { Theme, xresources } from 'beautiful';
+import { panelHeight, systrayIconSize, systrayMargin } from './base';
 
 import { FontWeight } from 'oocairo';
 import { Shape } from '../graphics/index';
 import { color } from 'gears';
+import { layoutIcons } from './layoutIcons';
+import { taglistTheme } from './taglist';
+import { tasklistTheme } from './tasklist';
 
 const dpi = xresources.apply_dpi;
 
@@ -13,6 +18,10 @@ naughty.config.spacing = dpi(5);
 naughty.config.presets.normal.margin = dpi(10);
 
 const theme: Partial<Theme> = {
+  ...layoutIcons,
+  ...tasklistTheme,
+  ...taglistTheme,
+
   tooltip_bg: color('#4e505200'),
   tooltip_border_width: dpi(0),
   tooltip_opacity: 0,
@@ -61,23 +70,7 @@ const theme: Partial<Theme> = {
 
   useless_gap: dpi(5),
 
-  // wibar_height: panelHeight,
-
-  // wallpaper: (s) => {
-  //   return textWallpaper(s.geometry.width, s.geometry.height, {
-  //     bg: color('#2b2b2b'),
-  //     fg: color('#313232'),
-  //     outline: {
-  //       size: dpi(0.5),
-  //       color: color('#36383a'),
-  //     },
-  //     text: '// unreachable',
-  //     font: {
-  //       family: 'Hasklig',
-  //       weight: FontWeight.Bold,
-  //     },
-  //   });
-  // },
+  wibar_height: panelHeight,
 
   bg_normal: '#3c3f41',
   bg_focus: '#2f65ca',
@@ -98,9 +91,9 @@ const theme: Partial<Theme> = {
 
   wibar_border_color: '#323232',
   wibar_bottom_border_size: dpi(1),
-  // menu_height: panelHeight,
-  // systray_icon_margin: systrayMargin,
-  // systray_icon_size: systrayIconSize,
+  menu_height: panelHeight,
+  systray_icon_margin: systrayMargin,
+  systray_icon_size: systrayIconSize,
   systray_icon_spacing: dpi(4),
 };
 
