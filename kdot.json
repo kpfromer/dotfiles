@@ -114,6 +114,13 @@
         "from": "zsh",
         "to": "/home/kpfromer"
       }
+    },
+    {
+      "name": "awesome",
+      "location": {
+        "from": "awesome",
+        "to": "/home/kpfromer/.config/awesome"
+      }
     }
   ]
 }
