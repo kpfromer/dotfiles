@@ -1,24 +1,8 @@
 {
-  "name": "awesomewm-config",
+  "name": "awesome",
   "version": "1.0.0",
   "private": true,
-  "description": "My awesomeWM configuration written in TypeScript!",
-  "main": "index.js",
-  "scripts": {
-    "build": "tstl",
-    "watch": "tstl --watch"
-  },
-  "author": "Kyle Pfromer",
-  "license": "MIT",
-  "dependencies": {
-    "awesomewm.4.3.ts.d": "0.0.1-rc2",
-    "lua-types": "^2.8.0"
-  },
-  "devDependencies": {
-    "prettier": "^2.3.1",
-    "typescript": "4.2.2",
-    "typescript-to-lua": "^0.37.1"
-  },
+  "scripts": {},
   "resolutions": {
     "lua-types": "2.8.0",
     "typescript": "4.2.2"
