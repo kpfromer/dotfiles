@@ -2,7 +2,14 @@ import * as awful from 'awful';
 
 import { Client, Layout, Screen } from 'awful';
 import { Direction, ModifierKey, MouseButton } from 'awesomewm.4.3.ts.d';
-import { buildButtons, buildKeys, moveCursorToClient, moveCursorToFocus, range } from './utils';
+import {
+  buildButtons,
+  buildKeys,
+  moveCursorToClient,
+  moveCursorToFocus,
+  moveTagDirection,
+  range,
+} from './utils';
 
 import { option } from './option';
 import { tag } from 'awful';
@@ -227,6 +234,23 @@ const globalDefs = {
             });
           },
           description: 'Focus previously used client',
+        },
+      ],
+    },
+    {
+      group: 'tag',
+      keys: [
+        {
+          modifiers: [modkey, ModifierKey.Control],
+          key: 'Left',
+          onPress: () => moveTagDirection('left'),
+          description: 'focus left',
+        },
+        {
+          modifiers: [modkey, ModifierKey.Control],
+          key: 'Right',
+          onPress: () => moveTagDirection('right'),
+          description: 'focus right',
         },
       ],
     },

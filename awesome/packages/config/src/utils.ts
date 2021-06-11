@@ -96,3 +96,20 @@ export function moveCursorToFocus(): void {
 export function moveCursorToClient(client: Client): void {
   centerCursor(client);
 }
+
+export function moveTagDirection(direction: 'left' | 'right'): void {
+  const screen = awful.screen.focused();
+  if (screen !== null) {
+    const { selected_tag, tags } = screen;
+    if (selected_tag !== null) {
+      // Lua is base one
+      const currPos = selected_tag.index - 1;
+
+      if (direction === 'left') {
+        tags[currPos === 0 ? tags.length - 1 : currPos - 1].view_only();
+      } else {
+        tags[currPos === tags.length - 1 ? 0 : currPos + 1].view_only();
+      }
+    }
+  }
+}
