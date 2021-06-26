@@ -1,0 +1,16 @@
+Thu Mar 18 21:09:24 2021
+latexindent version 2.2, a script to indent .tex files
+latexindent lives here: /usr/share/texlive/texmf-dist/scripts/latexindent/
+
+YAML files:
+	Reading defaultSettings.yaml from /usr/share/texlive/texmf-dist/scripts/latexindent/defaultSettings.yaml
+
+	Home directory is /root
+	To specify user settings you would put indentconfig.yaml here: 
+	/root/indentconfig.yaml
+
+	Alternatively, you can use the hidden file .indentconfig.yaml as: 
+	/root/.indentconfig.yaml
+
+Error: I couldn't find __latexindent_temp.tex, are you sure it exists?. No indentation done. 
+Exiting.

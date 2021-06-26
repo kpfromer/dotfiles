@@ -13,7 +13,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 
 # Custom Programs
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode"
 export EDITOR="vim"
 export GUI_EDITOR="code"

@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for insomnia, revision 132
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/insomnia_132.snap
+Where=/var/lib/snapd/snap/insomnia/132
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target

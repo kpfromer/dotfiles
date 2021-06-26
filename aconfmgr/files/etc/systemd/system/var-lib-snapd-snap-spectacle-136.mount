@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount unit for spectacle, revision 136
+Before=snapd.service
+
+[Mount]
+What=/var/lib/snapd/snaps/spectacle_136.snap
+Where=/var/lib/snapd/snap/spectacle/136
+Type=squashfs
+Options=nodev,ro,x-gdu.hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target

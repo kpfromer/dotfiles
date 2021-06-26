@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount unit for mailspring, revision 498
+Before=snapd.service
+
+[Mount]
+What=/var/lib/snapd/snaps/mailspring_498.snap
+Where=/var/lib/snapd/snap/mailspring/498
+Type=squashfs
+Options=nodev,ro,x-gdu.hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target

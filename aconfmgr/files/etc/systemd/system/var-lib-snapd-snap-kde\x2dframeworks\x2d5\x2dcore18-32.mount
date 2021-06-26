@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount unit for kde-frameworks-5-core18, revision 32
+Before=snapd.service
+
+[Mount]
+What=/var/lib/snapd/snaps/kde-frameworks-5-core18_32.snap
+Where=/var/lib/snapd/snap/kde-frameworks-5-core18/32
+Type=squashfs
+Options=nodev,ro,x-gdu.hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target

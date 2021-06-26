@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount unit for gtk-common-themes, revision 1515
+Before=snapd.service
+
+[Mount]
+What=/var/lib/snapd/snaps/gtk-common-themes_1515.snap
+Where=/var/lib/snapd/snap/gtk-common-themes/1515
+Type=squashfs
+Options=nodev,ro,x-gdu.hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target
