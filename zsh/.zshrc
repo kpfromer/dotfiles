@@ -38,19 +38,18 @@ export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1) # red
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me=$(tput sgr0)
 
-
 # aliases
 alias ls='exa --long --header --icons --sort=type'
 alias tree='exa --tree --level 3'
 alias sdn="sudo shutdown -h now"
 alias cp="cp -i" # Confirm before overwriting something
+alias rm="trash"
 alias pkg="yay -Q | fzf"
 alias yt='youtube-dl --add-metadata -i'
 alias cz='git-cz --disable-emoji'
 alias cu-vpn='/opt/cisco/anyconnect/bin/vpn' # read more here: https://oit.colorado.edu/tutorial/vpn-setup-and-usage-linux
 alias open="nautilus"
 alias ocr='ocrmypdf -l eng --rotate-pages --deskew --clean --optimize 1'
-
 
 # load the good parts from oh-my-zsh
 zplug "lib/completion",      from:oh-my-zsh
@@ -71,15 +70,10 @@ fi
 zplug load
 
 # run neofetch if terminal is interactive
-[ -z "$PS1" ] || pfetch
+# [ -z "$PS1" ] || nerdfetch
 
 # Allows ctrl+left arrow or ctrl+right arrow to move by words
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
-# School script to jump dirs
-source /home/kpfromer/.config/bash_functions/sc.sh
-
-# load miniconda
-# [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-# source /usr/share/nvm/init-nvm.sh
+export PATH=~/.npm-global/bin:$PATH
