@@ -121,6 +121,13 @@
         "from": "awesome",
         "to": "/home/kpfromer/.config/awesome"
       }
+    },
+    {
+      "name": "emacs",
+      "location": {
+        "from": "emacs",
+        "to": "/home/kpfromer/.doom.d"
+      }
     }
   ]
 }
