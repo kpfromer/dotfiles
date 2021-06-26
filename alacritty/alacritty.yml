@@ -9,9 +9,6 @@ font:
 background_opacity: 0.8
 
 shell:
-  program: /bin/bash
+  program: /bin/zsh
   args:
     - --login
-    - -c
-    # tmux config handles loading using zsh
-    - tmux
